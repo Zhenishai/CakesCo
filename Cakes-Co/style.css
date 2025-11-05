@@ -106,3 +106,54 @@ footer {
   font-size: 0.9rem;
   margin-top: 2rem;
 }
+
+/* ====== Medium Screens (≥540px) ====== */
+@media (min-width: 540px) {
+  .featured {
+    flex-direction: row;
+    text-align: left;
+    gap: 1rem;
+  }
+  .featured img {
+    width: 50%;
+  }
+  .welcome-text {
+    flex: 1;
+    align-self: center;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ====== Large Screens (≥900px) ====== */
+@media (min-width: 900px) {
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    padding: 1rem 2rem;
+  }
+  .tagline {
+    font-size: 1rem;
+  }
+  nav ul {
+    margin: 0;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+
+  .featured {
+    padding: 2rem;
+  }
+
+  footer {
+    font-size: 1rem;
+  }
+}
+
