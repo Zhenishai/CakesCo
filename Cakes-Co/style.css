@@ -1,1 +1,108 @@
-/*  Add your styling here */
+/* ====== Base (Mobile First) ====== */
+:root {
+  --primary: #f8d7da;
+  --secondary: #ffffff;
+  --accent: #e57373;
+  --text: #3c3c3c;
+  --font-main: 'Poppins', sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-main);
+  color: var(--text);
+  background-color: var(--secondary);
+}
+
+/* Header */
+header {
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--primary);
+}
+
+.logo img {
+  width: 60px;
+}
+.tagline {
+  font-style: italic;
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+}
+
+/* Nav */
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0 0;
+}
+nav li {
+  display: inline-block;
+  margin: 0.3rem;
+}
+nav a {
+  text-decoration: none;
+  background: var(--accent);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+nav a:hover,
+nav a:focus {
+  background: #c44c4c;
+  transform: scale(1.05);
+}
+
+/* Featured Section */
+.featured {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+.featured img {
+  width: 100%;
+  border-radius: 10px;
+}
+.welcome-text {
+  text-align: center;
+  margin-top: 1rem;
+}
+.btn {
+  display: inline-block;
+  margin-top: 0.5rem;
+  background: var(--accent);
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 5px;
+  text-decoration: none;
+}
+.btn:hover {
+  background: #c44c4c;
+}
+
+/* Gallery */
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  padding: 1rem;
+}
+.gallery img {
+  width: 100%;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+.gallery img:hover {
+  transform: scale(1.03);
+}
+
+/* Footer */
+footer {
+  background-color: var(--primary);
+  text-align: center;
+  padding: 0.8rem;
+  font-size: 0.9rem;
+  margin-top: 2rem;
+}
