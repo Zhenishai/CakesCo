@@ -2,7 +2,7 @@
 :root {
   --primary: #f8d7da;
   --secondary: #ffffff;
-  --accent: #d32f2f; 
+  --accent: #d32f2f;
   --text: #3c3c3c;
   --font-main: 'Poppins', sans-serif;
 }
@@ -14,70 +14,106 @@ body {
   background-color: var(--secondary);
 }
 
-/* Header */
+/* ====== Header ====== */
 header {
   background-color: var(--primary);
   width: 100%;
+  padding: 1rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .logo img {
   width: 100px;
-  margin: 1rem;
+  margin: 0.5rem;
 }
+
 .tagline {
   position: absolute;
-  right: 2rem;
-  transform: translateY(60%);
+  right: 4rem; 
+  max-width: 80%; /* prevent overflow */
   font-style: italic;
   font-size: 0.9rem;
+  text-align: right;
+  white-space: normal; 
 }
-/* Nav */
+
+/* ====== Hamburger Menu ====== */
+.menu-toggle {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: var(--text);
+  cursor: pointer;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000;
+}
+
+/* ====== Navigation ====== */
 nav {
-  margin: 1rem auto;             
+  display: none;
   background-color: var(--primary);
-  text-align: right;          
-  width: 95%;                 
-  border-radius: 5px;           
-  padding: 0.5rem 0;         
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+  text-align: center;
+  margin: 1rem ;
+  border-radius: 5px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+nav.active {
+  display: block;
 }
 
 nav ul {
   list-style: none;
-  margin: 0 0 0;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
 }
+
 nav li {
-  display: inline-block;
-  margin: 0.3rem;
-  padding: 10px;
+  margin: 0.5rem 0;
 }
+
 nav a {
   text-decoration: none;
   background: var(--accent);
   color: white;
-  padding: 0.5rem 1rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
   transition: background 0.3s ease, transform 0.2s ease;
 }
+
 nav a:hover,
 nav a:focus {
   background: #c44c4c;
   transform: scale(1.05);
 }
 
-/* Featured Section */
+/* ====== Featured Section ====== */
 .featured {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 1rem;
 }
-.featured img {
-  width: 100%;
-  border-radius: 10px;
-}
+
 .welcome-text {
   text-align: right;
-  margin-top: 1rem;
+  order: 1;
+}
+
+.featured img {
+   max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  order: 2;
 }
 
 .btn {
@@ -88,28 +124,33 @@ nav a:focus {
   padding: 0.6rem 1.2rem;
   border-radius: 5px;
   text-decoration: none;
+  transition: background 0.3s ease;
 }
+
 .btn:hover {
   background: #c44c4c;
 }
 
-/* Gallery */
+/* ====== Gallery ====== */
 .gallery {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.5rem;
   padding: 1rem;
 }
+
 .gallery img {
-  width: 100%;
+  max-width: 100%;
+  height: auto;
   border-radius: 8px;
   transition: transform 0.3s ease;
 }
+
 .gallery img:hover {
   transform: scale(1.03);
 }
 
-/* Footer */
+/* ====== Footer ====== */
 footer {
   background-color: var(--primary);
   text-align: center;
@@ -117,6 +158,7 @@ footer {
   font-size: 0.9rem;
   margin-top: 2rem;
 }
+
 .btns li {
   display: inline-block;
   margin: 0.3rem;
@@ -130,12 +172,15 @@ footer {
     text-align: left;
     gap: 1rem;
   }
+
   .featured img {
     width: 50%;
+    order: 1;
+    height: auto;
   }
+
   .welcome-text {
-    flex: 1;
-    align-self: left;
+    order: 2;
   }
 
   .gallery {
@@ -145,19 +190,32 @@ footer {
 
 /* ====== Large Screens (≥900px) ====== */
 @media (min-width: 900px) {
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: left;
-    padding: 1rem 2rem;
+  .menu-toggle {
+    display: none;
   }
+
+  nav {
+    display: block;
+    text-align: center;
+    width: 93%;
+    margin: 2rem;
+  }
+
+  nav ul {
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  nav li {
+    margin: 0 0.3rem;
+  }
+
+  header {
+    width: 100%;
+  }
+
   .tagline {
     font-size: 1rem;
-    text-align: right;
-  }
-  nav ul {
-    margin: 0;
   }
 
   .gallery {
@@ -173,4 +231,3 @@ footer {
     font-size: 1rem;
   }
 }
-
